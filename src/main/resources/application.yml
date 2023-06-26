@@ -1,0 +1,18 @@
+server:
+  port: 9000
+
+# HikariDataSource是spring提供的默认数据源，号称光连接池，速度比较快
+# 但缺点就是没有控制台页面
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver # MySQL8.0的驱动包必须要加上cj
+    url: jdbc:mysql://localhost:3306/houseRenting?serverTimezone=Asia/Shanghai
+    username: root
+    password: 12345678 # 这个密码是安装的时候自己设置的数据库密码，要改成自己的密码
+
+# 关于Mybatis-plus的配置
+mybatis-plus:
+  mapper-locations: classpath:mapper/*Mapper.xml  # 需要配置Mapper接口的xml所在的位置
+#mybatis:
+#  mapper-locations: classpath:mapper/*Mapper.xml  # 需要配置Mapper接口的xml所在的位置

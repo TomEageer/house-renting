@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--mapper接口映射关系就在这里体现，其中namespace就是mapper接口的全限定名-->
+<mapper namespace="com.qf.hose.renting.mapper.UserMapper">
+
+    <!--mapper接口的xml文件中，一般来说有4类标签：insert select update delete-->
+    <!--标签的id必须与mapper接口中的方法名保持一致，因为id是唯一的，因此要求mapper接口
+    不能出现方法重载-->
+
+    <!--mybatis中的取值方式有两种： ${表达式 } 和 #{表达式}
+    ${表达式} 走的路线就是字符串的拼接， 不能防止SQL注入
+    #{表达式} 走的路线是预编译 可以防止SQL注入-->
+   <insert id="addUser">
+        INSERT INTO `house_renting`.`user` (
+            `username`,
+            `password`,
+            `name`,
+            `sex`,
+            `phone`
+        ) VALUES  (
+           #{user.username},
+           #{user.password},
+           #{user.name},
+           #{user.sex},
+           #{user.phone}
+        )
+    </insert>
+</mapper>
